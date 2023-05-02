@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios HTML</title>
+    <style>
+        body{
+           background-color: rgba(0, 0, 0, 0.89) ;
+           color: white;
+           text-align: center; 
+        }
+     
+       section{
+        background-color: rgba(255, 255, 255, 0.438);
+        color: white;
+       }
+        header{ 
+            color: white;
+            text-align: center;
+        }
+        .links{
+            background-color: rgba(255, 255, 255, 0.438) ;
+            box-shadow: 10px;
+     }
+        footer{ 
+         text-align: center;
+            margin: 200px;
+            font-size : 15px;
+            font-family: Arial, Helvetica, sans-serif;
+         }
+    </style>
+</head>
+<body>
+    <header>
+        Exercícios HTML
+    </header>
+    <nav class="links">
+        <a href="teste.html">01 - Teste</a><br>
+        <a href="temp.html">02 - Teste</a><br>
+        <a href="temp2.html">03 - Teste</a><br>
+
+    </nav>
+    
+    <section id="conteudo">
+
+    </section>
+    <footer>
+        <b>&copyRobDev</b>
+
+    </footer>
+    <script>
+        document.querySelectorAll('a').forEach(link =>{
+            const conteudo = document.getElementById('conteudo')
+            
+            link.onclick = function(e){
+                e.preventDefault()
+                fetch (link.href)
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+    
+            }
+        })
+    </script>
+</body>
+</html>
